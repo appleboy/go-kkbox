@@ -47,7 +47,7 @@ func New(id, secret string) (*Box, error) {
 	box.Auth = auth
 
 	if auth.Error != "" {
-		err = ErrorInvalidClient
+		return nil, ErrorInvalidClient
 	}
 
 	return box, err

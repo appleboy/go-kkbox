@@ -125,17 +125,7 @@ func TestNew(t *testing.T) {
 				id:     "1234",
 				secret: "1234",
 			},
-			want: &Box{
-				ClientID:     "1234",
-				ClientSecret: "1234",
-				Auth: &AuthData{
-					AccessToken: "",
-					ExpiresIn:   0,
-					TokenType:   "",
-					Error:       "",
-				},
-				Debug: false,
-			},
+			want:     nil,
 			wantErr:  true,
 			errorMsg: ErrorInvalidClient,
 		},
