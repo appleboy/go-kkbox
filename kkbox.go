@@ -24,10 +24,17 @@ type AuthData struct {
 	Error       string `json:"error"`
 }
 
+var (
+	// ErrorMissingIDorSecret for missing client id or secret
+	ErrorMissingIDorSecret = errors.New("missing client id or secret")
+	// ErrorInvalidClient for wrong token
+	ErrorInvalidClient = errors.New("invalid_client")
+)
+
 // New MyAllocator object
 func New(id, secret string) (*Box, error) {
 	if id == "" || secret == "" {
-		return nil, errors.New("missing client id or secret")
+		return nil, ErrorMissingIDorSecret
 	}
 
 	box := &Box{
@@ -40,7 +47,7 @@ func New(id, secret string) (*Box, error) {
 	box.Auth = auth
 
 	if auth.Error != "" {
-		err = errors.New(auth.Error)
+		err = ErrorInvalidClient
 	}
 
 	return box, err

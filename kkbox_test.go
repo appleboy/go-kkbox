@@ -86,3 +86,84 @@ func TestBox_GetToken(t *testing.T) {
 		})
 	}
 }
+
+func TestNew(t *testing.T) {
+	type args struct {
+		id     string
+		secret string
+	}
+	tests := []struct {
+		name     string
+		args     args
+		want     *Box
+		wantErr  bool
+		errorMsg error
+	}{
+		{
+			name: "missing id",
+			args: args{
+				id:     "",
+				secret: "1234",
+			},
+			want:     nil,
+			wantErr:  true,
+			errorMsg: ErrorMissingIDorSecret,
+		},
+		{
+			name: "missing secret",
+			args: args{
+				id:     "1234",
+				secret: "",
+			},
+			want:     nil,
+			wantErr:  true,
+			errorMsg: ErrorMissingIDorSecret,
+		},
+		{
+			name: "wrong id and secret",
+			args: args{
+				id:     "1234",
+				secret: "1234",
+			},
+			want: &Box{
+				ClientID:     "1234",
+				ClientSecret: "1234",
+				Auth: &AuthData{
+					AccessToken: "",
+					ExpiresIn:   0,
+					TokenType:   "",
+					Error:       "",
+				},
+				Debug: false,
+			},
+			wantErr:  true,
+			errorMsg: ErrorInvalidClient,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, err := New(tt.args.id, tt.args.secret)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("New() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+
+			if err != nil && err != tt.errorMsg {
+				t.Errorf("New() error = %v, wantErr %v", err, tt.errorMsg)
+				return
+			}
+
+			if got != nil {
+				if got.ClientID != tt.want.ClientID {
+					t.Errorf("ClientID = %v, want %v", got.ClientID, tt.want.ClientID)
+					return
+				}
+
+				if got.ClientSecret != tt.want.ClientSecret {
+					t.Errorf("ClientSecret = %v, want %v", got.ClientSecret, tt.want.ClientSecret)
+					return
+				}
+			}
+		})
+	}
+}
