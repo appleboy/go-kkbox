@@ -18,10 +18,9 @@ pipeline:
       - make test
 
   codecov:
-    image: robertstettner/drone-codecov
+    image: plugins/codecov
     secrets: [ codecov_token ]
-    files:
-      - coverage.txt
+    pattern: "**/coverage.txt"
 
   discord:
     image: appleboy/drone-discord
