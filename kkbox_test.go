@@ -1,8 +1,11 @@
 package kkbox
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
-func TestBox_GetToken(t *testing.T) {
+func TestBox_getBase64Encode(t *testing.T) {
 	type fields struct {
 		ClientID     string
 		ClientSecret string
@@ -29,8 +32,8 @@ func TestBox_GetToken(t *testing.T) {
 				ClientSecret: tt.fields.ClientSecret,
 				Debug:        tt.fields.Debug,
 			}
-			if got := b.GetToken(); got != tt.want {
-				t.Errorf("Box.GetToken() = %v, want %v", got, tt.want)
+			if got := b.getBase64Encode(); got != tt.want {
+				t.Errorf("Box.getBase64Encode() = %v, want %v", got, tt.want)
 			}
 		})
 	}
