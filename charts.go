@@ -81,8 +81,8 @@ type Track struct {
 	Album                Album    `json:"album"`
 }
 
-// TrackDatas to retrieve information of the song ranking
-type TrackDatas struct {
+// TrackRankingDatas to retrieve information of the song ranking
+type TrackRankingDatas struct {
 	Tracks struct {
 		Data    []Track `json:"data"`
 		Paging  Paging  `json:"paging"`
@@ -95,6 +95,13 @@ type TrackDatas struct {
 	Images      []Image   `json:"images"`
 	UpdatedAt   time.Time `json:"updated_at"`
 	Owner       Owner     `json:"owner"`
+}
+
+// TrackDatas List tracks of a chart playlist.
+type TrackDatas struct {
+	Data    []Track `json:"data"`
+	Paging  Paging  `json:"paging"`
+	Summary Summary `json:"summary"`
 }
 
 // Param for http get parameter
@@ -114,9 +121,18 @@ func (b *Box) FetchCharts(params ...Param) (*ChartDatas, error) {
 }
 
 // FetchChartPlayList to retrieve information of the song ranking with {playlist_id}.
-func (b *Box) FetchChartPlayList(platListID string, params ...Param) (*TrackDatas, error) {
-	resp := new(TrackDatas)
+func (b *Box) FetchChartPlayList(platListID string, params ...Param) (*TrackRankingDatas, error) {
+	resp := new(TrackRankingDatas)
 	url := fmt.Sprintf(ChartPlayListURL, platListID)
+	err := b.fetchData(url, resp, params...)
+
+	return resp, err
+}
+
+// FetchChartPlayListTrack to retrieve information of the song ranking with {playlist_id}.
+func (b *Box) FetchChartPlayListTrack(platListID string, params ...Param) (*TrackDatas, error) {
+	resp := new(TrackDatas)
+	url := fmt.Sprintf(ChartPlayListTrackURL, platListID)
 	err := b.fetchData(url, resp, params...)
 
 	return resp, err
@@ -149,6 +165,8 @@ func (b *Box) fetchData(url string, res interface{}, params ...Param) error {
 	req.Param("offset", strconv.Itoa(offset))
 	req.Param("limit", strconv.Itoa(limit))
 	req.Param("territory", territory)
+
+	fmt.Println(string(req.DumpRequest()))
 
 	return req.ToJSON(res)
 }

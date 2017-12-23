@@ -10,5 +10,5 @@ const (
 	// with {playlist_id}.
 	ChartPlayListURL = ChartURL + "/%s"
 	// ChartPlayListTrackURL list tracks of a chart playlist.
-	ChartPlayListTrackURL = ChartURL + "/%s/track"
+	ChartPlayListTrackURL = ChartURL + "/%s/tracks"
 )

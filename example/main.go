@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/appleboy/go-kkbox"
+	"github.com/davecgh/go-spew/spew"
 )
 
 var clientID = os.Getenv("CLIENT_ID")
@@ -31,10 +32,19 @@ func main() {
 
 	fmt.Printf("%#v\n", charts)
 
-	tracks, err := k.FetchChartPlayList("4nUZM-TY2aVxZ2xaA-")
+	ranks, err := k.FetchChartPlayList("4nUZM-TY2aVxZ2xaA-")
 	if err != nil {
 		fmt.Printf("%#v\n", err)
 	}
 
-	fmt.Printf("%#v\n", tracks)
+	spew.Dump(ranks)
+
+	tracks, err := k.FetchChartPlayListTrack("4nUZM-TY2aVxZ2xaA-", kkbox.Param{
+		PerPage: 1,
+	})
+	if err != nil {
+		fmt.Printf("%#v\n", err)
+	}
+
+	spew.Dump(tracks)
 }
