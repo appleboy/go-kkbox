@@ -8,33 +8,44 @@ import (
 	"github.com/astaxie/beego/httplib"
 )
 
-// ChartsResp for charts list
-type ChartsResp struct {
+// Summary page data
+type Summary struct {
+	Total int `json:"total"`
+}
+
+type Owner struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+}
+
+// Image for music
+type Image struct {
+	Height int    `json:"height"`
+	Width  int    `json:"width"`
+	URL    string `json:"url"`
+}
+
+// Paging data
+type Paging struct {
+	Offset   int    `json:"offset"`
+	Limit    int    `json:"limit"`
+	Previous string `json:"previous"`
+	Next     string `json:"next"`
+}
+
+// ChartDatas for charts list
+type ChartDatas struct {
 	Data []struct {
-		ID          string `json:"id"`
-		Title       string `json:"title"`
-		Description string `json:"description"`
-		URL         string `json:"url"`
-		Images      []struct {
-			Height int    `json:"height"`
-			Width  int    `json:"width"`
-			URL    string `json:"url"`
-		} `json:"images"`
-		UpdatedAt time.Time `json:"updated_at"`
-		Owner     struct {
-			ID   string `json:"id"`
-			Name string `json:"name"`
-		} `json:"owner"`
+		ID          string    `json:"id"`
+		Title       string    `json:"title"`
+		Description string    `json:"description"`
+		URL         string    `json:"url"`
+		Images      []Image   `json:"images"`
+		UpdatedAt   time.Time `json:"updated_at"`
+		Owner       Owner     `json:"owner"`
 	} `json:"data"`
-	Paging struct {
-		Offset   int    `json:"offset"`
-		Limit    int    `json:"limit"`
-		Previous string `json:"previous"`
-		Next     string `json:"next"`
-	} `json:"paging"`
-	Summary struct {
-		Total int `json:"total"`
-	} `json:"summary"`
+	Paging  Paging  `json:"paging"`
+	Summary Summary `json:"summary"`
 }
 
 // Param for http get parameter
@@ -45,8 +56,8 @@ type Param struct {
 }
 
 // FetchCharts List of song rankings.
-func (b *Box) FetchCharts(params ...Param) (*ChartsResp, error) {
-	resp := new(ChartsResp)
+func (b *Box) FetchCharts(params ...Param) (*ChartDatas, error) {
+	resp := new(ChartDatas)
 	url := ChartURL
 	err := b.fetchData(url, resp, params...)
 
@@ -73,7 +84,9 @@ func (b *Box) fetchData(url string, res interface{}, params ...Param) error {
 		}
 	}
 
-	req.Header("Authorization", b.Auth.TokenType+" "+b.Auth.AccessToken)
+	// Add authorization header
+	authorization := b.Auth.TokenType + " " + b.Auth.AccessToken
+	req.Header("Authorization", authorization)
 
 	req.Param("offset", strconv.Itoa(offset))
 	req.Param("limit", strconv.Itoa(limit))
