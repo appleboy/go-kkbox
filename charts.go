@@ -49,33 +49,42 @@ type ChartDatas struct {
 	Summary Summary `json:"summary"`
 }
 
+// Artist struct
+type Artist struct {
+	ID     string  `json:"id"`
+	Name   string  `json:"name"`
+	URL    string  `json:"url"`
+	Images []Image `json:"images"`
+}
+
+// Album data
+type Album struct {
+	ID                   string   `json:"id"`
+	Name                 string   `json:"name"`
+	URL                  string   `json:"url"`
+	Explicitness         bool     `json:"explicitness"`
+	AvailableTerritories []string `json:"available_territories"`
+	ReleaseDate          string   `json:"release_date"`
+	Images               []Image  `json:"images"`
+	Artist               Artist   `json:"artist"`
+}
+
+// Track data
+type Track struct {
+	ID                   string   `json:"id"`
+	Name                 string   `json:"name"`
+	Duration             int      `json:"duration"`
+	URL                  string   `json:"url"`
+	TrackNumber          int      `json:"track_number"`
+	Explicitness         bool     `json:"explicitness"`
+	AvailableTerritories []string `json:"available_territories"`
+	Album                Album    `json:"album"`
+}
+
 // TrackDatas to retrieve information of the song ranking
 type TrackDatas struct {
 	Tracks struct {
-		Data []struct {
-			ID                   string   `json:"id"`
-			Name                 string   `json:"name"`
-			Duration             int      `json:"duration"`
-			URL                  string   `json:"url"`
-			TrackNumber          int      `json:"track_number"`
-			Explicitness         bool     `json:"explicitness"`
-			AvailableTerritories []string `json:"available_territories"`
-			Album                struct {
-				ID                   string   `json:"id"`
-				Name                 string   `json:"name"`
-				URL                  string   `json:"url"`
-				Explicitness         bool     `json:"explicitness"`
-				AvailableTerritories []string `json:"available_territories"`
-				ReleaseDate          string   `json:"release_date"`
-				Images               []Image  `json:"images"`
-				Artist               struct {
-					ID     string  `json:"id"`
-					Name   string  `json:"name"`
-					URL    string  `json:"url"`
-					Images []Image `json:"images"`
-				} `json:"artist"`
-			} `json:"album"`
-		} `json:"data"`
+		Data    []Track `json:"data"`
 		Paging  Paging  `json:"paging"`
 		Summary Summary `json:"summary"`
 	} `json:"tracks"`
