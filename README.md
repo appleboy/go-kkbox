@@ -8,3 +8,9 @@
 [KKBOX Open API](https://docs-en.kkbox.codes/) SDK for Golang.
 
 ## Features
+
+* [ ] New Hits Playlists
+* [x] Charts
+  - [x] /charts
+  - [x] /charts/{playlist_id}
+  - [x] /charts/{playlist_id}/tracks
