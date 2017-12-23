@@ -9,7 +9,20 @@
 
 ## Features
 
+* [ ] Tracks
+* [ ] Albums
+* [ ] Artists
+* [ ] Shared Playlists
+* [ ] Featured Playlists
+* [ ] Featured Playlist Categories
+* [ ] Mood Stations
+* [ ] Genre Stations
+* [ ] New Release Categories
+* [ ] Search
 * [ ] New Hits Playlists
+  - [ ] /new-hits-playlists
+  - [ ] /new-hits-playlists/{playlist_id}
+  - [ ] /new-hits-playlists/{playlist_id}/tracks
 * [x] Charts
   - [x] /charts
   - [x] /charts/{playlist_id}
