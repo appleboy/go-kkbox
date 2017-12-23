@@ -8,7 +8,7 @@ const (
 	ChartURL = "https://api.kkbox.com/v1.1/charts"
 	// ChartPlayList retrieve information of the song ranking
 	// with {playlist_id}.
-	ChartPlayList = ChartURL + "/%s"
+	ChartPlayListURL = ChartURL + "/%s"
 	// ChartPlayListTrack list tracks of a chart playlist.
-	ChartPlayListTrack = ChartURL + "/%s/track"
+	ChartPlayListTrackURL = ChartURL + "/%s/track"
 )

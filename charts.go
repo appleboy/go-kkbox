@@ -2,6 +2,7 @@ package kkbox
 
 import (
 	"crypto/tls"
+	"fmt"
 	"strconv"
 	"time"
 
@@ -48,6 +49,45 @@ type ChartDatas struct {
 	Summary Summary `json:"summary"`
 }
 
+// TrackDatas to retrieve information of the song ranking
+type TrackDatas struct {
+	Tracks struct {
+		Data []struct {
+			ID                   string   `json:"id"`
+			Name                 string   `json:"name"`
+			Duration             int      `json:"duration"`
+			URL                  string   `json:"url"`
+			TrackNumber          int      `json:"track_number"`
+			Explicitness         bool     `json:"explicitness"`
+			AvailableTerritories []string `json:"available_territories"`
+			Album                struct {
+				ID                   string   `json:"id"`
+				Name                 string   `json:"name"`
+				URL                  string   `json:"url"`
+				Explicitness         bool     `json:"explicitness"`
+				AvailableTerritories []string `json:"available_territories"`
+				ReleaseDate          string   `json:"release_date"`
+				Images               []Image  `json:"images"`
+				Artist               struct {
+					ID     string  `json:"id"`
+					Name   string  `json:"name"`
+					URL    string  `json:"url"`
+					Images []Image `json:"images"`
+				} `json:"artist"`
+			} `json:"album"`
+		} `json:"data"`
+		Paging  Paging  `json:"paging"`
+		Summary Summary `json:"summary"`
+	} `json:"tracks"`
+	ID          string    `json:"id"`
+	Title       string    `json:"title"`
+	Description string    `json:"description"`
+	URL         string    `json:"url"`
+	Images      []Image   `json:"images"`
+	UpdatedAt   time.Time `json:"updated_at"`
+	Owner       Owner     `json:"owner"`
+}
+
 // Param for http get parameter
 type Param struct {
 	Territory string
@@ -59,6 +99,15 @@ type Param struct {
 func (b *Box) FetchCharts(params ...Param) (*ChartDatas, error) {
 	resp := new(ChartDatas)
 	url := ChartURL
+	err := b.fetchData(url, resp, params...)
+
+	return resp, err
+}
+
+// FetchChartPlayList to retrieve information of the song ranking with {playlist_id}.
+func (b *Box) FetchChartPlayList(platListID string, params ...Param) (*TrackDatas, error) {
+	resp := new(TrackDatas)
+	url := fmt.Sprintf(ChartPlayListURL, platListID)
 	err := b.fetchData(url, resp, params...)
 
 	return resp, err

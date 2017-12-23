@@ -24,10 +24,17 @@ func main() {
 	fmt.Printf("%#v\n", k)
 
 	// fetch charts
-	resp, err := k.FetchCharts()
+	charts, err := k.FetchCharts()
 	if err != nil {
 		fmt.Printf("%#v\n", err)
 	}
 
-	fmt.Printf("%#v\n", resp)
+	fmt.Printf("%#v\n", charts)
+
+	tracks, err := k.FetchChartPlayList("4nUZM-TY2aVxZ2xaA-")
+	if err != nil {
+		fmt.Printf("%#v\n", err)
+	}
+
+	fmt.Printf("%#v\n", tracks)
 }
