@@ -105,44 +105,48 @@ func main() {
 	}
 	spew.Dump(album)
 
-	albumTrack, err := k.FetchAlbumTrack("WpTPGzNLeutVFHcFq6")
-	if err != nil {
-		fmt.Printf("%#v\n", err)
-	}
-	spew.Dump(albumTrack)
-
-	artist, err := k.FetchArtist("8q3_xzjl89Yakn_7GB")
-	if err != nil {
-		fmt.Printf("%#v\n", err)
-	}
-	spew.Dump(artist)
-
-	artistAlbums, err := k.FetchArtistAlbum("Cnv_K6i5Ft4y41SxLy", kkbox.Param{
-		Page:    2,
-		PerPage: 1,
-	})
-	if err != nil {
-		fmt.Printf("%#v\n", err)
-	}
-	spew.Dump(artistAlbums)
-
-	artistTopTracks, err := k.FetchArtistTopTrack("Cnv_K6i5Ft4y41SxLy", kkbox.Param{
-		Page:    2,
-		PerPage: 1,
-	})
-	if err != nil {
-		fmt.Printf("%#v\n", err)
-	}
-	spew.Dump(artistTopTracks)
-	fmt.Println("track length:", len(artistTopTracks.Data))
-
-	artistRelated, err := k.FetchArtistRelated("8q3_xzjl89Yakn_7GB", kkbox.Param{
+	albumTrack, err := k.FetchAlbumTrack("KmRKnW5qmUrTnGRuxF", kkbox.Param{
 		Page:    1,
 		PerPage: 1,
 	})
 	if err != nil {
 		fmt.Printf("%#v\n", err)
 	}
-	spew.Dump(artistRelated)
-	fmt.Println("artist releated length:", len(artistRelated.Data))
+	spew.Dump(albumTrack)
+	fmt.Println("album Track length:", len(albumTrack.Data))
+
+	// artist, err := k.FetchArtist("8q3_xzjl89Yakn_7GB")
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
+	// spew.Dump(artist)
+
+	// artistAlbums, err := k.FetchArtistAlbum("Cnv_K6i5Ft4y41SxLy", kkbox.Param{
+	// 	Page:    2,
+	// 	PerPage: 1,
+	// })
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
+	// spew.Dump(artistAlbums)
+
+	// artistTopTracks, err := k.FetchArtistTopTrack("Cnv_K6i5Ft4y41SxLy", kkbox.Param{
+	// 	Page:    2,
+	// 	PerPage: 1,
+	// })
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
+	// spew.Dump(artistTopTracks)
+	// fmt.Println("track length:", len(artistTopTracks.Data))
+
+	// artistRelated, err := k.FetchArtistRelated("8q3_xzjl89Yakn_7GB", kkbox.Param{
+	// 	Page:    1,
+	// 	PerPage: 1,
+	// })
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
+	// spew.Dump(artistRelated)
+	// fmt.Println("artist releated length:", len(artistRelated.Data))
 }
