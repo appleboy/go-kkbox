@@ -12,3 +12,12 @@ func (b *Box) FetchArtist(id string) (*Artist, error) {
 
 	return resp, err
 }
+
+// FetchArtistAlbum list of albums of an artist.
+func (b *Box) FetchArtistAlbum(id string, params ...Param) (*ArtistAlbumData, error) {
+	resp := new(ArtistAlbumData)
+	url := fmt.Sprintf(ArtistAlbumURL, id)
+	err := b.fetchData(url, resp, params...)
+
+	return resp, err
+}

@@ -116,4 +116,13 @@ func main() {
 		fmt.Printf("%#v\n", err)
 	}
 	spew.Dump(artist)
+
+	artistAlbums, err := k.FetchArtistAlbum("Cnv_K6i5Ft4y41SxLy", kkbox.Param{
+		Page:    2,
+		PerPage: 1,
+	})
+	if err != nil {
+		fmt.Printf("%#v\n", err)
+	}
+	spew.Dump(artistAlbums)
 }
