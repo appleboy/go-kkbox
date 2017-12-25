@@ -50,70 +50,70 @@ func main() {
 
 	// spew.Dump(tracks)
 
-	// fetch hits
-	hits, err := k.FetchHits(kkbox.Param{
-		PerPage: 2,
-	})
-	if err != nil {
-		fmt.Printf("%#v\n", err)
-	}
+	// // fetch hits
+	// hits, err := k.FetchHits(kkbox.Param{
+	// 	PerPage: 2,
+	// })
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
 
-	fmt.Println("hit length:", len(hits.Data))
-	// spew.Dump(hits)
+	// fmt.Println("hit length:", len(hits.Data))
+	// // spew.Dump(hits)
 
-	list, err := k.FetchHitPlayList("DZrC8m29ciOFY2JAm3", kkbox.Param{
-		Page:    2,
-		PerPage: 2,
-	})
-	if err != nil {
-		fmt.Printf("%#v\n", err)
-	}
+	// list, err := k.FetchHitPlayList("DZrC8m29ciOFY2JAm3", kkbox.Param{
+	// 	Page:    2,
+	// 	PerPage: 2,
+	// })
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
 
-	fmt.Println("list length:", len(list.Tracks.Data))
-	// spew.Dump(list)
+	// fmt.Println("list length:", len(list.Tracks.Data))
+	// // spew.Dump(list)
 
-	tracks, err := k.FetchHitPlayListTrack("DZrC8m29ciOFY2JAm3", kkbox.Param{
-		PerPage: 3,
-	})
-	if err != nil {
-		fmt.Printf("%#v\n", err)
-	}
+	// tracks, err := k.FetchHitPlayListTrack("DZrC8m29ciOFY2JAm3", kkbox.Param{
+	// 	PerPage: 3,
+	// })
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
 
-	fmt.Println("track length:", len(tracks.Data))
-	// spew.Dump(tracks)
+	// fmt.Println("track length:", len(tracks.Data))
+	// // spew.Dump(tracks)
 
-	results, err := k.FetchSearchData("五月天", kkbox.Param{
-		PerPage: 1,
-	})
-	if err != nil {
-		fmt.Printf("%#v\n", err)
-	}
+	// results, err := k.FetchSearchData("五月天", kkbox.Param{
+	// 	PerPage: 1,
+	// })
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
 
-	fmt.Println("artist length:", len(results.Artists.Data))
-	fmt.Println("track length:", len(results.Tracks.Data))
-	// spew.Dump(results)
+	// fmt.Println("artist length:", len(results.Artists.Data))
+	// fmt.Println("track length:", len(results.Tracks.Data))
+	// // spew.Dump(results)
 
-	track, err := k.FetchTrack("4kxvr3wPWkaL9_y3o_")
-	if err != nil {
-		fmt.Printf("%#v\n", err)
-	}
-	spew.Dump(track)
+	// track, err := k.FetchTrack("4kxvr3wPWkaL9_y3o_")
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
+	// spew.Dump(track)
 
-	album, err := k.FetchAlbum("WpTPGzNLeutVFHcFq6")
-	if err != nil {
-		fmt.Printf("%#v\n", err)
-	}
-	spew.Dump(album)
+	// album, err := k.FetchAlbum("WpTPGzNLeutVFHcFq6")
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
+	// spew.Dump(album)
 
-	albumTrack, err := k.FetchAlbumTrack("KmRKnW5qmUrTnGRuxF", kkbox.Param{
-		Page:    1,
-		PerPage: 1,
-	})
-	if err != nil {
-		fmt.Printf("%#v\n", err)
-	}
-	spew.Dump(albumTrack)
-	fmt.Println("album Track length:", len(albumTrack.Data))
+	// albumTrack, err := k.FetchAlbumTrack("KmRKnW5qmUrTnGRuxF", kkbox.Param{
+	// 	Page:    1,
+	// 	PerPage: 1,
+	// })
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
+	// spew.Dump(albumTrack)
+	// fmt.Println("album Track length:", len(albumTrack.Data))
 
 	// artist, err := k.FetchArtist("8q3_xzjl89Yakn_7GB")
 	// if err != nil {
