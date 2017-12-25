@@ -125,4 +125,14 @@ func main() {
 		fmt.Printf("%#v\n", err)
 	}
 	spew.Dump(artistAlbums)
+
+	artistTopTracks, err := k.FetchArtistTopTrack("Cnv_K6i5Ft4y41SxLy", kkbox.Param{
+		Page:    2,
+		PerPage: 10,
+	})
+	if err != nil {
+		fmt.Printf("%#v\n", err)
+	}
+	spew.Dump(artistTopTracks)
+	fmt.Println("track length:", len(artistTopTracks.Data))
 }
