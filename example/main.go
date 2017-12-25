@@ -22,29 +22,43 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Printf("%#v\n", k)
+	fmt.Println("====== kkbox client ======")
+	spew.Dump(k)
+	fmt.Println("====== kkbox end ======")
 
-	// fetch charts
-	charts, err := k.FetchCharts()
-	if err != nil {
-		fmt.Printf("%#v\n", err)
-	}
+	// // fetch charts
+	// charts, err := k.FetchCharts()
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
 
-	fmt.Printf("%#v\n", charts)
+	// fmt.Printf("%#v\n", charts)
 
-	ranks, err := k.FetchChartPlayList("4nUZM-TY2aVxZ2xaA-")
-	if err != nil {
-		fmt.Printf("%#v\n", err)
-	}
+	// ranks, err := k.FetchChartPlayList("4nUZM-TY2aVxZ2xaA-")
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
 
-	spew.Dump(ranks)
+	// spew.Dump(ranks)
 
-	tracks, err := k.FetchChartPlayListTrack("4nUZM-TY2aVxZ2xaA-", kkbox.Param{
-		PerPage: 1,
+	// tracks, err := k.FetchChartPlayListTrack("4nUZM-TY2aVxZ2xaA-", kkbox.Param{
+	// 	PerPage: 1,
+	// })
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
+
+	// spew.Dump(tracks)
+
+	// fetch hits
+	hits, err := k.FetchHits(kkbox.Param{
+		PerPage: 2,
 	})
 	if err != nil {
 		fmt.Printf("%#v\n", err)
 	}
 
-	spew.Dump(tracks)
+	fmt.Println("hit length:", len(hits.Data))
+
+	// spew.Dump(hits)
 }

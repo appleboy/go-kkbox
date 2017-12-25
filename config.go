@@ -11,4 +11,7 @@ const (
 	ChartPlayListURL = ChartURL + "/%s"
 	// ChartPlayListTrackURL list tracks of a chart playlist.
 	ChartPlayListTrackURL = ChartURL + "/%s/tracks"
+
+	// NewHitPlaylistsURL List of new hits playlists.
+	NewHitURL = "https://api.kkbox.com/v1.1/new-hits-playlists"
 )

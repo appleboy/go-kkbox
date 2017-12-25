@@ -14,6 +14,7 @@ type Summary struct {
 	Total int `json:"total"`
 }
 
+// Owner data
 type Owner struct {
 	ID   string `json:"id"`
 	Name string `json:"name"`

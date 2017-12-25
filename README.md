@@ -20,7 +20,7 @@
 * [ ] New Release Categories
 * [ ] Search
 * [ ] New Hits Playlists
-  - [ ] /new-hits-playlists
+  - [x] /new-hits-playlists
   - [ ] /new-hits-playlists/{playlist_id}
   - [ ] /new-hits-playlists/{playlist_id}/tracks
 * [x] Charts
