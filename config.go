@@ -30,4 +30,13 @@ const (
 	AlbumURL = "https://api.kkbox.com/v1.1/albums/%s"
 	// AlbumTrackURL list of tracks of an album.
 	AlbumTrackURL = AlbumURL + "/tracks"
+
+	// ArtistURL retrieve information of the artist with {artist_id}.
+	ArtistURL = "https://api.kkbox.com/v1.1/artists/%s"
+	// ArtistAlbumURL List of albums of an artist.
+	ArtistAlbumURL = ArtistURL + "/albums"
+	// ArtistTopTrackURL List of top tracks of an artist.
+	ArtistTopTrackURL = ArtistURL + "/top-tracks"
+	// ArtistRelatedArtistURL Get related artists of an artist.
+	ArtistRelatedArtistURL = ArtistURL + "/related-artists"
 )

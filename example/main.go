@@ -110,4 +110,10 @@ func main() {
 		fmt.Printf("%#v\n", err)
 	}
 	spew.Dump(albumTrack)
+
+	artist, err := k.FetchArtist("8q3_xzjl89Yakn_7GB")
+	if err != nil {
+		fmt.Printf("%#v\n", err)
+	}
+	spew.Dump(artist)
 }

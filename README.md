@@ -15,6 +15,10 @@
   - [x] /albums/{album_id}
   - [x] /albums/{album_id}/tracks
 * [ ] Artists
+  - [x] /artists/{artist_id}
+  - [ ] /artists/{artist_id}/albums
+  - [ ] /artists/{artist_id}/top-tracks
+  - [ ] /artists/{artist_id}/related-artists
 * [ ] Shared Playlists
 * [ ] Featured Playlists
 * [ ] Featured Playlist Categories
