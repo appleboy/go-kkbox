@@ -4,6 +4,7 @@ import (
 	"crypto/tls"
 	"encoding/base64"
 	"errors"
+	"strconv"
 
 	"github.com/astaxie/beego/httplib"
 )
@@ -67,4 +68,49 @@ func (b *Box) GetToken() (*AuthData, error) {
 	res := new(AuthData)
 	err := req.ToJSON(res)
 	return res, err
+}
+
+func (b *Box) fetchData(url string, res interface{}, params ...Param) error {
+	req := httplib.Get(url).Debug(b.Debug)
+	req.SetTLSClientConfig(&tls.Config{InsecureSkipVerify: true})
+
+	offset := 0
+	limit := 10
+	territory := "TW"
+	q := ""
+	contentType := ""
+	if len(params) > 0 {
+		param := params[0]
+		if param.PerPage > 0 {
+			limit = param.PerPage
+		}
+		if param.Page > 1 {
+			offset = (param.Page - 1) * limit
+		}
+		if param.Territory != "" {
+			territory = param.Territory
+		}
+		if param.Q != "" {
+			q = param.Q
+		}
+		if param.Type != "" {
+			contentType = param.Type
+		}
+	}
+
+	// Add authorization header
+	authorization := b.Auth.TokenType + " " + b.Auth.AccessToken
+	req.Header("Authorization", authorization)
+
+	req.Param("offset", strconv.Itoa(offset))
+	req.Param("limit", strconv.Itoa(limit))
+	req.Param("territory", territory)
+
+	if q != "" {
+		req.Param("q", q)
+	}
+	if contentType != "" {
+		req.Param("type", contentType)
+	}
+	return req.ToJSON(res)
 }

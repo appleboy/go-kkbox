@@ -80,5 +80,16 @@ func main() {
 	}
 
 	fmt.Println("track length:", len(tracks.Data))
-	spew.Dump(tracks)
+	// spew.Dump(tracks)
+
+	results, err := k.FetchSearchData("五月天", kkbox.Param{
+		PerPage: 1,
+	})
+	if err != nil {
+		fmt.Printf("%#v\n", err)
+	}
+
+	fmt.Println("artist length:", len(results.Artists.Data))
+	fmt.Println("track length:", len(results.Tracks.Data))
+	// spew.Dump(results)
 }

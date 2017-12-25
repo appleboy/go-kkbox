@@ -102,7 +102,29 @@ type TrackData struct {
 
 // Param for http get parameter
 type Param struct {
+	// The search keywords, URL encoded.
+	Q string
+	// The content type. Content type could be track, album, artist, or playlist.
+	Type string
+	// Territory code, i.e. TW, HK, SG, MY, JP, of search content.
 	Territory string
 	Page      int
-	PerPage   int
+	// The number of items to return per page, not to exceed 50.
+	PerPage int
+}
+
+// SearchData for search results
+type SearchData struct {
+	Artists struct {
+		Data    []Artist `json:"data"`
+		Paging  Paging   `json:"paging"`
+		Summary Summary  `json:"summary"`
+	} `json:"artists"`
+	Tracks struct {
+		Data    []Track `json:"data"`
+		Paging  Paging  `json:"paging"`
+		Summary Summary `json:"summary"`
+	} `json:"tracks"`
+	Paging  Paging  `json:"paging"`
+	Summary Summary `json:"summary"`
 }

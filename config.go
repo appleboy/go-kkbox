@@ -19,4 +19,7 @@ const (
 	NewHitPlayListURL = NewHitURL + "/%s"
 	// NewHitPlayListTrackURL List of tracks of a new hits playlist.
 	NewHitPlayListTrackURL = NewHitURL + "/%s/tracks"
+
+	// SearchURL search for various objects.
+	SearchURL = "https://api.kkbox.com/v1.1/search"
 )

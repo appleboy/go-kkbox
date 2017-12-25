@@ -18,8 +18,9 @@
 * [ ] Mood Stations
 * [ ] Genre Stations
 * [ ] New Release Categories
-* [ ] Search
-* [ ] New Hits Playlists
+* [x] Search
+  - [x] /search
+* [x] New Hits Playlists
   - [x] /new-hits-playlists
   - [x] /new-hits-playlists/{playlist_id}
   - [x] /new-hits-playlists/{playlist_id}/tracks
