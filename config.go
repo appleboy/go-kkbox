@@ -17,4 +17,6 @@ const (
 	// NewHitPlayListURL retrieve information of the new hits playlist
 	// with {playlist_id}.
 	NewHitPlayListURL = NewHitURL + "/%s"
+	// NewHitPlayListTrackURL List of tracks of a new hits playlist.
+	NewHitPlayListTrackURL = NewHitURL + "/%s/tracks"
 )
