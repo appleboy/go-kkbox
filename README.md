@@ -9,7 +9,8 @@
 
 ## Features
 
-* [ ] Tracks
+* [x] Tracks
+  - [x] /tracks/{track_id}
 * [ ] Albums
 * [ ] Artists
 * [ ] Shared Playlists
