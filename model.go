@@ -128,3 +128,10 @@ type SearchData struct {
 	Paging  Paging  `json:"paging"`
 	Summary Summary `json:"summary"`
 }
+
+// AlbumTrackData list of tracks of an album.
+type AlbumTrackData struct {
+	Data    []Track `json:"data"`
+	Paging  Paging  `json:"paging"`
+	Summary Summary `json:"summary"`
+}

@@ -12,3 +12,12 @@ func (b *Box) FetchAlbum(id string) (*Album, error) {
 
 	return resp, err
 }
+
+// FetchAlbumTrack list of tracks of an album..
+func (b *Box) FetchAlbumTrack(id string) (*AlbumTrackData, error) {
+	resp := new(AlbumTrackData)
+	url := fmt.Sprintf(AlbumTrackURL, id)
+	err := b.fetchData(url, resp)
+
+	return resp, err
+}
