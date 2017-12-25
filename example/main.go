@@ -59,6 +59,16 @@ func main() {
 	}
 
 	fmt.Println("hit length:", len(hits.Data))
-
 	// spew.Dump(hits)
+
+	list, err := k.FetchHitPlayList("DZrC8m29ciOFY2JAm3", kkbox.Param{
+		Page:    2,
+		PerPage: 2,
+	})
+	if err != nil {
+		fmt.Printf("%#v\n", err)
+	}
+
+	fmt.Println("hit length:", len(list.Tracks.Data))
+	spew.Dump(list)
 }

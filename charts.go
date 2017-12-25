@@ -4,117 +4,13 @@ import (
 	"crypto/tls"
 	"fmt"
 	"strconv"
-	"time"
 
 	"github.com/astaxie/beego/httplib"
 )
 
-// Summary page data
-type Summary struct {
-	Total int `json:"total"`
-}
-
-// Owner data
-type Owner struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
-}
-
-// Image for music
-type Image struct {
-	Height int    `json:"height"`
-	Width  int    `json:"width"`
-	URL    string `json:"url"`
-}
-
-// Paging data
-type Paging struct {
-	Offset   int    `json:"offset"`
-	Limit    int    `json:"limit"`
-	Previous string `json:"previous"`
-	Next     string `json:"next"`
-}
-
-// ChartDatas for charts list
-type ChartDatas struct {
-	Data []struct {
-		ID          string    `json:"id"`
-		Title       string    `json:"title"`
-		Description string    `json:"description"`
-		URL         string    `json:"url"`
-		Images      []Image   `json:"images"`
-		UpdatedAt   time.Time `json:"updated_at"`
-		Owner       Owner     `json:"owner"`
-	} `json:"data"`
-	Paging  Paging  `json:"paging"`
-	Summary Summary `json:"summary"`
-}
-
-// Artist struct
-type Artist struct {
-	ID     string  `json:"id"`
-	Name   string  `json:"name"`
-	URL    string  `json:"url"`
-	Images []Image `json:"images"`
-}
-
-// Album data
-type Album struct {
-	ID                   string   `json:"id"`
-	Name                 string   `json:"name"`
-	URL                  string   `json:"url"`
-	Explicitness         bool     `json:"explicitness"`
-	AvailableTerritories []string `json:"available_territories"`
-	ReleaseDate          string   `json:"release_date"`
-	Images               []Image  `json:"images"`
-	Artist               Artist   `json:"artist"`
-}
-
-// Track data
-type Track struct {
-	ID                   string   `json:"id"`
-	Name                 string   `json:"name"`
-	Duration             int      `json:"duration"`
-	URL                  string   `json:"url"`
-	TrackNumber          int      `json:"track_number"`
-	Explicitness         bool     `json:"explicitness"`
-	AvailableTerritories []string `json:"available_territories"`
-	Album                Album    `json:"album"`
-}
-
-// TrackRankingDatas to retrieve information of the song ranking
-type TrackRankingDatas struct {
-	Tracks struct {
-		Data    []Track `json:"data"`
-		Paging  Paging  `json:"paging"`
-		Summary Summary `json:"summary"`
-	} `json:"tracks"`
-	ID          string    `json:"id"`
-	Title       string    `json:"title"`
-	Description string    `json:"description"`
-	URL         string    `json:"url"`
-	Images      []Image   `json:"images"`
-	UpdatedAt   time.Time `json:"updated_at"`
-	Owner       Owner     `json:"owner"`
-}
-
-// TrackDatas List tracks of a chart playlist.
-type TrackDatas struct {
-	Data    []Track `json:"data"`
-	Paging  Paging  `json:"paging"`
-	Summary Summary `json:"summary"`
-}
-
-// Param for http get parameter
-type Param struct {
-	Territory string
-	Page      int
-	PerPage   int
-}
-
 // FetchCharts List of song rankings.
-func (b *Box) FetchCharts(params ...Param) (*ChartDatas, error) {
-	resp := new(ChartDatas)
+func (b *Box) FetchCharts(params ...Param) (*GroupListData, error) {
+	resp := new(GroupListData)
 	url := ChartURL
 	err := b.fetchData(url, resp, params...)
 
@@ -122,8 +18,8 @@ func (b *Box) FetchCharts(params ...Param) (*ChartDatas, error) {
 }
 
 // FetchChartPlayList to retrieve information of the song ranking with {playlist_id}.
-func (b *Box) FetchChartPlayList(platListID string, params ...Param) (*TrackRankingDatas, error) {
-	resp := new(TrackRankingDatas)
+func (b *Box) FetchChartPlayList(platListID string, params ...Param) (*PlayListData, error) {
+	resp := new(PlayListData)
 	url := fmt.Sprintf(ChartPlayListURL, platListID)
 	err := b.fetchData(url, resp, params...)
 
@@ -131,8 +27,8 @@ func (b *Box) FetchChartPlayList(platListID string, params ...Param) (*TrackRank
 }
 
 // FetchChartPlayListTrack to retrieve information of the song ranking with {playlist_id}.
-func (b *Box) FetchChartPlayListTrack(platListID string, params ...Param) (*TrackDatas, error) {
-	resp := new(TrackDatas)
+func (b *Box) FetchChartPlayListTrack(platListID string, params ...Param) (*TrackData, error) {
+	resp := new(TrackData)
 	url := fmt.Sprintf(ChartPlayListTrackURL, platListID)
 	err := b.fetchData(url, resp, params...)
 

@@ -14,4 +14,7 @@ const (
 
 	// NewHitURL List of new hits playlists.
 	NewHitURL = "https://api.kkbox.com/v1.1/new-hits-playlists"
+	// NewHitPlayListURL retrieve information of the new hits playlist
+	// with {playlist_id}.
+	NewHitPlayListURL = NewHitURL + "/%s"
 )
