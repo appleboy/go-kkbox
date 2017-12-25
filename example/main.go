@@ -92,4 +92,10 @@ func main() {
 	fmt.Println("artist length:", len(results.Artists.Data))
 	fmt.Println("track length:", len(results.Tracks.Data))
 	// spew.Dump(results)
+
+	track, err := k.FetchTrack("4kxvr3wPWkaL9_y3o_")
+	if err != nil {
+		fmt.Printf("%#v\n", err)
+	}
+	spew.Dump(track)
 }

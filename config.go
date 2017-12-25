@@ -22,4 +22,7 @@ const (
 
 	// SearchURL search for various objects.
 	SearchURL = "https://api.kkbox.com/v1.1/search"
+
+	// TrackURL retrieve information of the song with {track_id}.
+	TrackURL = "https://api.kkbox.com/v1.1/tracks/%s"
 )
