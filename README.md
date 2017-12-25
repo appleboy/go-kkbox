@@ -20,11 +20,26 @@
   - [x] /artists/{artist_id}/top-tracks
   - [x] /artists/{artist_id}/related-artists
 * [ ] Shared Playlists
+  - [ ] /shared-playlists/{playlist_id}
+  - [ ] /shared-playlists/{playlist_id}/tracks
 * [ ] Featured Playlists
+  - [ ] /featured-playlists
+  - [ ] /featured-playlists/{playlist_id}
+  - [ ] /featured-playlists/{playlist_id}/tracks
 * [ ] Featured Playlist Categories
+  - [ ] /featured-playlist-categories
+  - [ ] /featured-playlist-categories/{category_id}
+  - [ ] /featured-playlist-categories/{category_id}/playlists
 * [ ] Mood Stations
+  - [ ] /mood-stations
+  - [ ] /mood-stations/{station_id}
 * [ ] Genre Stations
+  - [ ] /genre-stations
+  - [ ] /genre-stations/{station_id}
 * [ ] New Release Categories
+  - [ ] /new-release-categories
+  - [ ] /new-release-categories/{category_id}
+  - [ ] /new-release-categories/{category_id}/albums
 * [x] Search
   - [x] /search
 * [x] New Hits Playlists
