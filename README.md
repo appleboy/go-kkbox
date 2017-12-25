@@ -14,11 +14,11 @@
 * [x] Albums
   - [x] /albums/{album_id}
   - [x] /albums/{album_id}/tracks
-* [ ] Artists
+* [x] Artists
   - [x] /artists/{artist_id}
   - [x] /artists/{artist_id}/albums
   - [x] /artists/{artist_id}/top-tracks
-  - [ ] /artists/{artist_id}/related-artists
+  - [x] /artists/{artist_id}/related-artists
 * [ ] Shared Playlists
 * [ ] Featured Playlists
 * [ ] Featured Playlist Categories

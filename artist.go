@@ -30,3 +30,12 @@ func (b *Box) FetchArtistTopTrack(id string, params ...Param) (*AlbumTrackData, 
 
 	return resp, err
 }
+
+// FetchArtistRelated List of top tracks of an artist.
+func (b *Box) FetchArtistRelated(id string, params ...Param) (*ArtistAlbumData, error) {
+	resp := new(ArtistAlbumData)
+	url := fmt.Sprintf(ArtistRelatedArtistURL, id)
+	err := b.fetchData(url, resp, params...)
+
+	return resp, err
+}
