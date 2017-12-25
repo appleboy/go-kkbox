@@ -21,8 +21,8 @@
 * [ ] Search
 * [ ] New Hits Playlists
   - [x] /new-hits-playlists
-  - [ ] /new-hits-playlists/{playlist_id}
-  - [ ] /new-hits-playlists/{playlist_id}/tracks
+  - [x] /new-hits-playlists/{playlist_id}
+  - [x] /new-hits-playlists/{playlist_id}/tracks
 * [x] Charts
   - [x] /charts
   - [x] /charts/{playlist_id}
