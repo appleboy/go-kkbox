@@ -25,4 +25,7 @@ const (
 
 	// TrackURL retrieve information of the song with {track_id}.
 	TrackURL = "https://api.kkbox.com/v1.1/tracks/%s"
+
+	// AlbumURL retrieve information of the album with {album_id}.
+	AlbumURL = "https://api.kkbox.com/v1.1/albums/%s"
 )

@@ -12,6 +12,8 @@
 * [x] Tracks
   - [x] /tracks/{track_id}
 * [ ] Albums
+  - [x] /albums/{album_id}
+  - [ ] /albums/{album_id}/tracks
 * [ ] Artists
 * [ ] Shared Playlists
 * [ ] Featured Playlists

@@ -98,4 +98,10 @@ func main() {
 		fmt.Printf("%#v\n", err)
 	}
 	spew.Dump(track)
+
+	album, err := k.FetchAlbum("WpTPGzNLeutVFHcFq6")
+	if err != nil {
+		fmt.Printf("%#v\n", err)
+	}
+	spew.Dump(album)
 }
