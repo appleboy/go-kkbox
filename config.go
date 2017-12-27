@@ -39,4 +39,9 @@ const (
 	ArtistTopTrackURL = ArtistURL + "/top-tracks"
 	// ArtistRelatedArtistURL Get related artists of an artist.
 	ArtistRelatedArtistURL = ArtistURL + "/related-artists"
+
+	// SharedPlaylistURL retrieve information of the shared playlist with {playlist_id}.
+	SharedPlaylistURL = "https://api.kkbox.com/v1.1/shared-playlists/%s"
+	// SharedPlaylistTrackURL list of songs of a shared playlist.
+	SharedPlaylistTrackURL = "https://api.kkbox.com/v1.1/shared-playlists/%s/tracks"
 )

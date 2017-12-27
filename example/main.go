@@ -149,4 +149,11 @@ func main() {
 	// }
 	// spew.Dump(artistRelated)
 	// fmt.Println("artist releated length:", len(artistRelated.Data))
+
+	sharedPlayList, err := k.FetchSharedPlayList("4nUZM-TY2aVxZ2xaA-")
+	if err != nil {
+		fmt.Printf("%#v\n", err)
+	}
+	spew.Dump(sharedPlayList)
+	fmt.Println("artist releated length:", len(sharedPlayList.Tracks.Data))
 }
