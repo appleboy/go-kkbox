@@ -156,4 +156,14 @@ func main() {
 	}
 	spew.Dump(sharedPlayList)
 	fmt.Println("artist releated length:", len(sharedPlayList.Tracks.Data))
+
+	sharedPlayListTrack, err := k.FetchSharedPlayListTrack("4nUZM-TY2aVxZ2xaA-", kkbox.Param{
+		PerPage: 1,
+		Page:    5,
+	})
+	if err != nil {
+		fmt.Printf("%#v\n", err)
+	}
+	spew.Dump(sharedPlayListTrack)
+	fmt.Println("artist releated length:", len(sharedPlayListTrack.Data))
 }

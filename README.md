@@ -19,9 +19,9 @@
   - [x] /artists/{artist_id}/albums
   - [x] /artists/{artist_id}/top-tracks
   - [x] /artists/{artist_id}/related-artists
-* [ ] Shared Playlists
-  - [ ] /shared-playlists/{playlist_id}
-  - [ ] /shared-playlists/{playlist_id}/tracks
+* [x] Shared Playlists
+  - [x] /shared-playlists/{playlist_id}
+  - [x] /shared-playlists/{playlist_id}/tracks
 * [ ] Featured Playlists
   - [ ] /featured-playlists
   - [ ] /featured-playlists/{playlist_id}
