@@ -166,4 +166,13 @@ func main() {
 	}
 	spew.Dump(sharedPlayListTrack)
 	fmt.Println("artist releated length:", len(sharedPlayListTrack.Data))
+
+	featuredPlayList, err := k.FetchFeaturedPlayList(kkbox.Param{
+		PerPage: 2,
+	})
+	if err != nil {
+		fmt.Printf("%#v\n", err)
+	}
+	spew.Dump(featuredPlayList)
+	fmt.Println("feature play list length:", len(featuredPlayList.Data))
 }

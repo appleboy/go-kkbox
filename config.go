@@ -44,4 +44,7 @@ const (
 	SharedPlaylistURL = "https://api.kkbox.com/v1.1/shared-playlists/%s"
 	// SharedPlaylistTrackURL list of songs of a shared playlist.
 	SharedPlaylistTrackURL = "https://api.kkbox.com/v1.1/shared-playlists/%s/tracks"
+
+	// FeaturedPlayListURL List of songs hand-picked and arranged by KKBOX editors.
+	FeaturedPlayListURL = "https://api.kkbox.com/v1.1/featured-playlists"
 )
