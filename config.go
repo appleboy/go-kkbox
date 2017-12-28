@@ -49,4 +49,6 @@ const (
 	FeaturedPlayListURL = "https://api.kkbox.com/v1.1/featured-playlists"
 	// FeaturedSinglePlayListURL retrieve information of the featured playlist with {playlist_id}.
 	FeaturedSinglePlayListURL = FeaturedPlayListURL + "/%s"
+	// FeaturedPlayListTrackURL List the songs of a featured playlist.
+	FeaturedPlayListTrackURL = FeaturedPlayListURL + "/%s/tracks"
 )

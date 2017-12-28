@@ -22,10 +22,10 @@
 * [x] Shared Playlists
   - [x] /shared-playlists/{playlist_id}
   - [x] /shared-playlists/{playlist_id}/tracks
-* [ ] Featured Playlists
+* [x] Featured Playlists
   - [x] /featured-playlists
   - [x] /featured-playlists/{playlist_id}
-  - [ ] /featured-playlists/{playlist_id}/tracks
+  - [x] /featured-playlists/{playlist_id}/tracks
 * [ ] Featured Playlist Categories
   - [ ] /featured-playlist-categories
   - [ ] /featured-playlist-categories/{category_id}
