@@ -1,11 +1,11 @@
 package kkbox
 
 import (
-// "fmt"
+	"fmt"
 )
 
-// FetchFeaturedPlayList List of new hits playlists.
-func (b *Box) FetchFeaturedPlayList(params ...Param) (*GroupListData, error) {
+// FetchFeatured List of songs hand-picked and arranged by KKBOX editors.
+func (b *Box) FetchFeatured(params ...Param) (*GroupListData, error) {
 	resp := new(GroupListData)
 	url := FeaturedPlayListURL
 	err := b.fetchData(url, resp, params...)
@@ -13,14 +13,14 @@ func (b *Box) FetchFeaturedPlayList(params ...Param) (*GroupListData, error) {
 	return resp, err
 }
 
-// // FetchHitPlayList retrieve information of the new hits playlist with {playlist_id}.
-// func (b *Box) FetchHitPlayList(playList string, params ...Param) (*PlayListData, error) {
-// 	resp := new(PlayListData)
-// 	url := fmt.Sprintf(NewHitPlayListURL, playList)
-// 	err := b.fetchData(url, resp, params...)
+// FetchFeaturedPlayList retrieve information of the featured playlist with {playlist_id}.
+func (b *Box) FetchFeaturedPlayList(playList string, params ...Param) (*PlayListData, error) {
+	resp := new(PlayListData)
+	url := fmt.Sprintf(FeaturedSinglePlayListURL, playList)
+	err := b.fetchData(url, resp, params...)
 
-// 	return resp, err
-// }
+	return resp, err
+}
 
 // // FetchHitPlayListTrack list of tracks of a new hits playlist.
 // func (b *Box) FetchHitPlayListTrack(playList string, params ...Param) (*TrackData, error) {

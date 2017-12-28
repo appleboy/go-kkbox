@@ -24,7 +24,7 @@
   - [x] /shared-playlists/{playlist_id}/tracks
 * [ ] Featured Playlists
   - [x] /featured-playlists
-  - [ ] /featured-playlists/{playlist_id}
+  - [x] /featured-playlists/{playlist_id}
   - [ ] /featured-playlists/{playlist_id}/tracks
 * [ ] Featured Playlist Categories
   - [ ] /featured-playlist-categories
