@@ -142,3 +142,15 @@ type ArtistAlbumData struct {
 	Paging  Paging  `json:"paging"`
 	Summary Summary `json:"summary"`
 }
+
+// CategoryListData for category
+type CategoryListData struct {
+	ID     string `json:"id"`
+	Title  string `json:"title"`
+	Images []struct {
+		Height int    `json:"height"`
+		Width  int    `json:"width"`
+		URL    string `json:"url"`
+	} `json:"images"`
+	Playlists GroupListData `json:"playlists"`
+}
