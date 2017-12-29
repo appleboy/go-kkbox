@@ -209,12 +209,21 @@ func main() {
 	// spew.Dump(featuredSingleCategory)
 	// fmt.Println("feature category play list length:", len(featuredSingleCategory.Playlists.Data))
 
-	featuredCategoryPlayList, err := k.FetchFeaturedCategoryPlayList("LXUR688EBKRRZydAWb", kkbox.Param{
+	// featuredCategoryPlayList, err := k.FetchFeaturedCategoryPlayList("LXUR688EBKRRZydAWb", kkbox.Param{
+	// 	PerPage: 2,
+	// })
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
+	// spew.Dump(featuredCategoryPlayList)
+	// fmt.Println("feature category play list length:", len(featuredCategoryPlayList.Data))
+
+	moodStations, err := k.FetchMoodStationList(kkbox.Param{
 		PerPage: 2,
 	})
 	if err != nil {
 		fmt.Printf("%#v\n", err)
 	}
-	spew.Dump(featuredCategoryPlayList)
-	fmt.Println("feature category play list length:", len(featuredCategoryPlayList.Data))
+	spew.Dump(moodStations)
+	fmt.Println("mood station list length:", len(moodStations.Data))
 }

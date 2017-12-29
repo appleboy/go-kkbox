@@ -58,4 +58,9 @@ const (
 	FeaturedSingleCategoryURL = FeaturedCategoryURL + "/%s"
 	// FeaturedCategoryPlayListURL List of playlists of a featured playlist category.
 	FeaturedCategoryPlayListURL = FeaturedCategoryURL + "/%s/playlists"
+
+	// MoodStationURL List of mood stations.
+	MoodStationURL = "https://api.kkbox.com/v1.1/mood-stations"
+	// MoodSingleStationURL To retrieve information of the mood station with {station_id}.
+	MoodSingleStationURL = MoodStationURL + "/%s"
 )

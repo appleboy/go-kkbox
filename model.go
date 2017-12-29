@@ -148,12 +148,19 @@ type ArtistAlbumData struct {
 
 // CategoryListData for category
 type CategoryListData struct {
-	ID     string `json:"id"`
-	Title  string `json:"title"`
-	Images []struct {
-		Height int    `json:"height"`
-		Width  int    `json:"width"`
-		URL    string `json:"url"`
-	} `json:"images"`
+	ID        string        `json:"id"`
+	Title     string        `json:"title"`
+	Images    []Image       `json:"images"`
 	Playlists GroupListData `json:"playlists"`
+}
+
+// MoodListData mood stations.
+type MoodListData struct {
+	Data []struct {
+		ID     string  `json:"id"`
+		Name   string  `json:"name"`
+		Images []Image `json:"images"`
+	} `json:"data"`
+	Paging  Paging  `json:"paging"`
+	Summary Summary `json:"summary"`
 }
