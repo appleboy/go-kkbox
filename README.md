@@ -26,10 +26,10 @@
   - [x] /featured-playlists
   - [x] /featured-playlists/{playlist_id}
   - [x] /featured-playlists/{playlist_id}/tracks
-* [ ] Featured Playlist Categories
-  - [ ] /featured-playlist-categories
-  - [ ] /featured-playlist-categories/{category_id}
-  - [ ] /featured-playlist-categories/{category_id}/playlists
+* [x] Featured Playlist Categories
+  - [x] /featured-playlist-categories
+  - [x] /featured-playlist-categories/{category_id}
+  - [x] /featured-playlist-categories/{category_id}/playlists
 * [ ] Mood Stations
   - [ ] /mood-stations
   - [ ] /mood-stations/{station_id}
