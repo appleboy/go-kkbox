@@ -33,9 +33,9 @@
 * [x] Mood Stations
   - [x] /mood-stations
   - [x] /mood-stations/{station_id}
-* [ ] Genre Stations
-  - [ ] /genre-stations
-  - [ ] /genre-stations/{station_id}
+* [x] Genre Stations
+  - [x] /genre-stations
+  - [x] /genre-stations/{station_id}
 * [ ] New Release Categories
   - [ ] /new-release-categories
   - [ ] /new-release-categories/{category_id}

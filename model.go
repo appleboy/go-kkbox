@@ -175,3 +175,26 @@ type MoodData struct {
 		Summary Summary `json:"summary"`
 	} `json:"tracks"`
 }
+
+// GenreList List of genre stations.
+type GenreList struct {
+	Data []struct {
+		ID       string `json:"id"`
+		Category string `json:"category"`
+		Name     string `json:"name"`
+	} `json:"data"`
+	Paging  Paging  `json:"paging"`
+	Summary Summary `json:"summary"`
+}
+
+// GenreData retrieve information of the genre station with {station_id}.
+type GenreData struct {
+	Category string `json:"category"`
+	ID       string `json:"id"`
+	Name     string `json:"name"`
+	Tracks   struct {
+		Data    []Track `json:"data"`
+		Paging  Paging  `json:"paging"`
+		Summary Summary `json:"summary"`
+	} `json:"tracks"`
+}

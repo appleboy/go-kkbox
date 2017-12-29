@@ -218,19 +218,35 @@ func main() {
 	// spew.Dump(featuredCategoryPlayList)
 	// fmt.Println("feature category play list length:", len(featuredCategoryPlayList.Data))
 
-	moodStations, err := k.FetchMoodStationList(kkbox.Param{
+	// moodStations, err := k.FetchMoodStationList(kkbox.Param{
+	// 	PerPage: 2,
+	// })
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
+	// spew.Dump(moodStations)
+	// fmt.Println("mood station list length:", len(moodStations.Data))
+
+	// moodStation, err := k.FetchMoodStation("StGZp2ToWq92diPHS7")
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
+	// spew.Dump(moodStation)
+	// fmt.Println("mood station list length:", len(moodStation.Tracks.Data))
+
+	genreStations, err := k.FetchGenreStationList(kkbox.Param{
 		PerPage: 2,
 	})
 	if err != nil {
 		fmt.Printf("%#v\n", err)
 	}
-	spew.Dump(moodStations)
-	fmt.Println("mood station list length:", len(moodStations.Data))
+	spew.Dump(genreStations)
+	fmt.Println("mood station list length:", len(genreStations.Data))
 
-	moodStation, err := k.FetchMoodStation("StGZp2ToWq92diPHS7")
+	genreStation, err := k.FetchGenreStation("StGZp2ToWq92diPHS7")
 	if err != nil {
 		fmt.Printf("%#v\n", err)
 	}
-	spew.Dump(moodStation)
-	fmt.Println("mood station list length:", len(moodStation.Tracks.Data))
+	spew.Dump(genreStation)
+	fmt.Println("mood station list length:", len(genreStation.Tracks.Data))
 }

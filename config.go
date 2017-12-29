@@ -63,4 +63,9 @@ const (
 	MoodStationURL = "https://api.kkbox.com/v1.1/mood-stations"
 	// MoodSingleStationURL To retrieve information of the mood station with {station_id}.
 	MoodSingleStationURL = MoodStationURL + "/%s"
+
+	// GenreStationURL List of genre stations.
+	GenreStationURL = "https://api.kkbox.com/v1.1/mood-stations"
+	// GenreSingleStationURL retrieve information of the genre station with {station_id}.
+	GenreSingleStationURL = GenreStationURL + "/%s"
 )
