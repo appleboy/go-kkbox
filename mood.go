@@ -1,7 +1,7 @@
 package kkbox
 
 import (
-// "fmt"
+	"fmt"
 )
 
 // FetchMoodStationList List of mood stations.
@@ -13,11 +13,11 @@ func (b *Box) FetchMoodStationList(params ...Param) (*MoodListData, error) {
 	return resp, err
 }
 
-// // FetchHitPlayList retrieve information of the new hits playlist with {playlist_id}.
-// func (b *Box) FetchHitPlayList(playList string, params ...Param) (*PlayListData, error) {
-// 	resp := new(PlayListData)
-// 	url := fmt.Sprintf(NewHitPlayListURL, playList)
-// 	err := b.fetchData(url, resp, params...)
+// FetchMoodStation retrieve information of the mood station with {station_id}.
+func (b *Box) FetchMoodStation(id string, params ...Param) (*MoodData, error) {
+	resp := new(MoodData)
+	url := fmt.Sprintf(MoodSingleStationURL, id)
+	err := b.fetchData(url, resp, params...)
 
-// 	return resp, err
-// }
+	return resp, err
+}

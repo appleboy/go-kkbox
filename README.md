@@ -30,9 +30,9 @@
   - [x] /featured-playlist-categories
   - [x] /featured-playlist-categories/{category_id}
   - [x] /featured-playlist-categories/{category_id}/playlists
-* [ ] Mood Stations
-  - [ ] /mood-stations
-  - [ ] /mood-stations/{station_id}
+* [x] Mood Stations
+  - [x] /mood-stations
+  - [x] /mood-stations/{station_id}
 * [ ] Genre Stations
   - [ ] /genre-stations
   - [ ] /genre-stations/{station_id}

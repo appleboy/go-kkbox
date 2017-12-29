@@ -164,3 +164,14 @@ type MoodListData struct {
 	Paging  Paging  `json:"paging"`
 	Summary Summary `json:"summary"`
 }
+
+// MoodData retrieve information of the mood station with {station_id}.
+type MoodData struct {
+	ID     string `json:"id"`
+	Name   string `json:"name"`
+	Tracks struct {
+		Data    []Track `json:"data"`
+		Paging  Paging  `json:"paging"`
+		Summary Summary `json:"summary"`
+	} `json:"tracks"`
+}

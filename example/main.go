@@ -226,4 +226,11 @@ func main() {
 	}
 	spew.Dump(moodStations)
 	fmt.Println("mood station list length:", len(moodStations.Data))
+
+	moodStation, err := k.FetchMoodStation("StGZp2ToWq92diPHS7")
+	if err != nil {
+		fmt.Printf("%#v\n", err)
+	}
+	spew.Dump(moodStation)
+	fmt.Println("mood station list length:", len(moodStation.Tracks.Data))
 }
