@@ -202,10 +202,19 @@ func main() {
 	// spew.Dump(featuredCategory)
 	// fmt.Println("feature category length:", len(featuredCategory.Data))
 
-	featuredSingleCategory, err := k.FetchSingleFeaturedCategory("LXUR688EBKRRZydAWb")
+	// featuredSingleCategory, err := k.FetchSingleFeaturedCategory("LXUR688EBKRRZydAWb")
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
+	// spew.Dump(featuredSingleCategory)
+	// fmt.Println("feature category play list length:", len(featuredSingleCategory.Playlists.Data))
+
+	featuredCategoryPlayList, err := k.FetchFeaturedCategoryPlayList("LXUR688EBKRRZydAWb", kkbox.Param{
+		PerPage: 2,
+	})
 	if err != nil {
 		fmt.Printf("%#v\n", err)
 	}
-	spew.Dump(featuredSingleCategory)
-	fmt.Println("feature category play list length:", len(featuredSingleCategory.Playlists.Data))
+	spew.Dump(featuredCategoryPlayList)
+	fmt.Println("feature category play list length:", len(featuredCategoryPlayList.Data))
 }

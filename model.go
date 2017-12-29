@@ -62,17 +62,20 @@ type Track struct {
 	Album                Album    `json:"album"`
 }
 
+// Song for play list
+type Song struct {
+	ID          string    `json:"id"`
+	Title       string    `json:"title"`
+	Description string    `json:"description"`
+	URL         string    `json:"url"`
+	Images      []Image   `json:"images"`
+	UpdatedAt   time.Time `json:"updated_at"`
+	Owner       Owner     `json:"owner"`
+}
+
 // GroupListData for song list
 type GroupListData struct {
-	Data []struct {
-		ID          string    `json:"id"`
-		Title       string    `json:"title"`
-		Description string    `json:"description"`
-		URL         string    `json:"url"`
-		Images      []Image   `json:"images"`
-		UpdatedAt   time.Time `json:"updated_at"`
-		Owner       Owner     `json:"owner"`
-	} `json:"data"`
+	Data    []Song  `json:"data"`
 	Paging  Paging  `json:"paging"`
 	Summary Summary `json:"summary"`
 }
