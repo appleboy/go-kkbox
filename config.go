@@ -51,4 +51,11 @@ const (
 	FeaturedSinglePlayListURL = FeaturedPlayListURL + "/%s"
 	// FeaturedPlayListTrackURL List the songs of a featured playlist.
 	FeaturedPlayListTrackURL = FeaturedPlayListURL + "/%s/tracks"
+
+	// FeaturedCategoryURL List of featured playlist categories.
+	FeaturedCategoryURL = "https://api.kkbox.com/v1.1/featured-playlist-categories"
+	// FeaturedSingleCategoryURL Get A Featured Playlist Category.
+	FeaturedSingleCategoryURL = FeaturedCategoryURL + "/%s"
+	// FeaturedCategoryPlayListURL List of playlists of a featured playlist category.
+	FeaturedCategoryPlayListURL = FeaturedCategoryURL + "/%s/playlists"
 )

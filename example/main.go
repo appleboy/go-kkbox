@@ -192,4 +192,13 @@ func main() {
 	}
 	spew.Dump(featuredPlayListTrack)
 	fmt.Println("feature play list track length:", len(featuredPlayListTrack.Data))
+
+	featuredCategory, err := k.FetchFeatured(kkbox.Param{
+		PerPage: 2,
+	})
+	if err != nil {
+		fmt.Printf("%#v\n", err)
+	}
+	spew.Dump(featuredCategory)
+	fmt.Println("feature category length:", len(featuredCategory.Data))
 }
