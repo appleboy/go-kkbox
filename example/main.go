@@ -38,13 +38,16 @@ func main() {
 	spew.Dump(ranks)
 
 	tracks, err := k.FetchChartPlayListTrack("4nUZM-TY2aVxZ2xaA-", kkbox.Param{
-		PerPage: 1,
+		PerPage:   1,
+		Page:      2,
+		Territory: "HK",
 	})
 	if err != nil {
 		fmt.Printf("%#v\n", err)
 	}
 
 	spew.Dump(tracks)
+	log.Println("length: ", len(tracks.Data))
 
 	// // fetch hits
 	// hits, err := k.FetchHits(kkbox.Param{
@@ -246,30 +249,30 @@ func main() {
 	// spew.Dump(genreStation)
 	// fmt.Println("mood station list length:", len(genreStation.Tracks.Data))
 
-	releaseCategoryList, err := k.FetchReleaseCategory(kkbox.Param{
-		PerPage: 2,
-	})
-	if err != nil {
-		fmt.Printf("%#v\n", err)
-	}
-	spew.Dump(releaseCategoryList)
-	fmt.Println("release Category List length:", len(releaseCategoryList.Data))
+	// releaseCategoryList, err := k.FetchReleaseCategory(kkbox.Param{
+	// 	PerPage: 2,
+	// })
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
+	// spew.Dump(releaseCategoryList)
+	// fmt.Println("release Category List length:", len(releaseCategoryList.Data))
 
-	releaseCategory, err := k.FetchSingleReleaseCategory("KrdH2LdyUKS8z2aoxX", kkbox.Param{
-		PerPage: 2,
-	})
-	if err != nil {
-		fmt.Printf("%#v\n", err)
-	}
-	spew.Dump(releaseCategory)
-	fmt.Println("release Category List length:", len(releaseCategory.Albums.Data))
+	// releaseCategory, err := k.FetchSingleReleaseCategory("KrdH2LdyUKS8z2aoxX", kkbox.Param{
+	// 	PerPage: 2,
+	// })
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
+	// spew.Dump(releaseCategory)
+	// fmt.Println("release Category List length:", len(releaseCategory.Albums.Data))
 
-	releaseCategoryAlbum, err := k.FetchReleaseCategoryAlbum("KrdH2LdyUKS8z2aoxX", kkbox.Param{
-		PerPage: 3,
-	})
-	if err != nil {
-		fmt.Printf("%#v\n", err)
-	}
-	spew.Dump(releaseCategoryAlbum)
-	fmt.Println("release Category List length:", len(releaseCategoryAlbum.Data))
+	// releaseCategoryAlbum, err := k.FetchReleaseCategoryAlbum("KrdH2LdyUKS8z2aoxX", kkbox.Param{
+	// 	PerPage: 3,
+	// })
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
+	// spew.Dump(releaseCategoryAlbum)
+	// fmt.Println("release Category List length:", len(releaseCategoryAlbum.Data))
 }

@@ -104,13 +104,16 @@ func main() {
 	spew.Dump(ranks)
 
 	tracks, err := k.FetchChartPlayListTrack("4nUZM-TY2aVxZ2xaA-", kkbox.Param{
-		PerPage: 1,
+		PerPage:   1,
+		Page:      2,
+		Territory: "HK",
 	})
 	if err != nil {
 		fmt.Printf("%#v\n", err)
 	}
 
 	spew.Dump(tracks)
+	log.Println("length: ", len(tracks.Data))
 }
 ```
 
