@@ -50,3 +50,46 @@
   - [x] /charts
   - [x] /charts/{playlist_id}
   - [x] /charts/{playlist_id}/tracks
+
+## Install
+
+Install SDK library
+
+```
+$ go get -u github.coma/appleboy/go-kkbox
+```
+
+Inital the KKBox client:
+
+```go
+package main
+
+import (
+	"log"
+	"os"
+
+	"github.com/appleboy/go-kkbox"
+)
+
+var clientID = os.Getenv("CLIENT_ID")
+var clientSecret = os.Getenv("CLIENT_SECRET")
+
+func main() {
+	if clientID == "" || clientSecret == "" {
+		log.Fatal("missing client id or secret")
+	}
+	k, err := kkbox.New(clientID, clientSecret)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	log.Println(k)
+}
+```
+
+Run program:
+
+```sh
+$ CLIENT_ID=xxx CLIENT_SECRET=xxx go run main.go
+```
