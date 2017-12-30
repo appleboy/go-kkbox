@@ -68,4 +68,11 @@ const (
 	GenreStationURL = "https://api.kkbox.com/v1.1/mood-stations"
 	// GenreSingleStationURL retrieve information of the genre station with {station_id}.
 	GenreSingleStationURL = GenreStationURL + "/%s"
+
+	// ReleaseCategoryURL List of new release categories.
+	ReleaseCategoryURL = "https://api.kkbox.com/v1.1/new-release-categories"
+	// ReleaseSingleCategoryURL retrieve information of the new release category with {category_id}.
+	ReleaseSingleCategoryURL = ReleaseCategoryURL + "/%s"
+	// ReleaseCategoryAlbumURL List of albums of a new release category.
+	ReleaseCategoryAlbumURL = ReleaseCategoryURL + "/%s/albums"
 )

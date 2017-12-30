@@ -198,3 +198,13 @@ type GenreData struct {
 		Summary Summary `json:"summary"`
 	} `json:"tracks"`
 }
+
+// ReleaseCategoryList List of new release categories.
+type ReleaseCategoryList struct {
+	Data []struct {
+		ID    string `json:"id"`
+		Title string `json:"title"`
+	} `json:"data"`
+	Paging  Paging  `json:"paging"`
+	Summary Summary `json:"summary"`
+}

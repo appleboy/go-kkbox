@@ -234,19 +234,28 @@ func main() {
 	// spew.Dump(moodStation)
 	// fmt.Println("mood station list length:", len(moodStation.Tracks.Data))
 
-	genreStations, err := k.FetchGenreStationList(kkbox.Param{
+	// genreStations, err := k.FetchGenreStationList(kkbox.Param{
+	// 	PerPage: 2,
+	// })
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
+	// spew.Dump(genreStations)
+	// fmt.Println("mood station list length:", len(genreStations.Data))
+
+	// genreStation, err := k.FetchGenreStation("StGZp2ToWq92diPHS7")
+	// if err != nil {
+	// 	fmt.Printf("%#v\n", err)
+	// }
+	// spew.Dump(genreStation)
+	// fmt.Println("mood station list length:", len(genreStation.Tracks.Data))
+
+	releaseCategoryList, err := k.FetchReleaseCategory(kkbox.Param{
 		PerPage: 2,
 	})
 	if err != nil {
 		fmt.Printf("%#v\n", err)
 	}
-	spew.Dump(genreStations)
-	fmt.Println("mood station list length:", len(genreStations.Data))
-
-	genreStation, err := k.FetchGenreStation("StGZp2ToWq92diPHS7")
-	if err != nil {
-		fmt.Printf("%#v\n", err)
-	}
-	spew.Dump(genreStation)
-	fmt.Println("mood station list length:", len(genreStation.Tracks.Data))
+	spew.Dump(releaseCategoryList)
+	fmt.Println("release Category List length:", len(releaseCategoryList.Data))
 }
