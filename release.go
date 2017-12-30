@@ -22,11 +22,11 @@ func (b *Box) FetchSingleReleaseCategory(id string, params ...Param) (*AlbumList
 	return resp, err
 }
 
-// // FetchFeaturedPlayListTrack list the songs of a featured playlist.
-// func (b *Box) FetchFeaturedPlayListTrack(playList string, params ...Param) (*TrackData, error) {
-// 	resp := new(TrackData)
-// 	url := fmt.Sprintf(FeaturedPlayListTrackURL, playList)
-// 	err := b.fetchData(url, resp, params...)
+// FetchReleaseCategoryAlbum list of albums of a new release category.
+func (b *Box) FetchReleaseCategoryAlbum(id string, params ...Param) (*ArtistAlbumData, error) {
+	resp := new(ArtistAlbumData)
+	url := fmt.Sprintf(ReleaseCategoryAlbumURL, id)
+	err := b.fetchData(url, resp, params...)
 
-// 	return resp, err
-// }
+	return resp, err
+}

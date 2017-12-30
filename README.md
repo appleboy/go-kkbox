@@ -36,10 +36,10 @@
 * [x] Genre Stations
   - [x] /genre-stations
   - [x] /genre-stations/{station_id}
-* [ ] New Release Categories
-  - [ ] /new-release-categories
-  - [ ] /new-release-categories/{category_id}
-  - [ ] /new-release-categories/{category_id}/albums
+* [x] New Release Categories
+  - [x] /new-release-categories
+  - [x] /new-release-categories/{category_id}
+  - [x] /new-release-categories/{category_id}/albums
 * [x] Search
   - [x] /search
 * [x] New Hits Playlists
