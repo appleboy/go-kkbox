@@ -208,3 +208,14 @@ type ReleaseCategoryList struct {
 	Paging  Paging  `json:"paging"`
 	Summary Summary `json:"summary"`
 }
+
+// AlbumList retrieve information of the new release category with {category_id}.
+type AlbumList struct {
+	ID     string `json:"id"`
+	Title  string `json:"title"`
+	Albums struct {
+		Data    []Album `json:"data"`
+		Paging  Paging  `json:"paging"`
+		Summary Summary `json:"summary"`
+	} `json:"albums"`
+}

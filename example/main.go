@@ -258,4 +258,13 @@ func main() {
 	}
 	spew.Dump(releaseCategoryList)
 	fmt.Println("release Category List length:", len(releaseCategoryList.Data))
+
+	releaseCategory, err := k.FetchSingleReleaseCategory("KrdH2LdyUKS8z2aoxX", kkbox.Param{
+		PerPage: 2,
+	})
+	if err != nil {
+		fmt.Printf("%#v\n", err)
+	}
+	spew.Dump(releaseCategory)
+	fmt.Println("release Category List length:", len(releaseCategory.Albums.Data))
 }
