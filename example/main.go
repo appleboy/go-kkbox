@@ -22,10 +22,6 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Println("====== kkbox client ======")
-	spew.Dump(k)
-	fmt.Println("====== kkbox end ======")
-
 	// fetch charts
 	charts, err := k.FetchCharts()
 	if err != nil {
