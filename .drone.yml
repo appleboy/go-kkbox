@@ -10,7 +10,8 @@ clone:
 
 pipeline:
   test:
-    image: appleboy/golang-testing:1.10.0
+    image: go:1.11
+    pull: true
     commands:
       - make vet
       - make lint
