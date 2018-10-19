@@ -10,7 +10,7 @@ clone:
 
 pipeline:
   test:
-    image: go:1.11
+    image: golang:1.11
     pull: true
     commands:
       - make vet
