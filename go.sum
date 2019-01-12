@@ -1,2 +1,4 @@
+github.com/astaxie/beego v0.0.0-20171218111859-f16688817aa4 h1:S+9NpWgwkBlu/nZi3F4bkj5gcf5luYb4h5hc58f+tXo=
 github.com/astaxie/beego v0.0.0-20171218111859-f16688817aa4/go.mod h1:0R4++1tUqERR0WYFWdfkcrsyoVBCG4DgpDGokT3yb+U=
+github.com/davecgh/go-spew v0.0.0-20171005155431-ecdeabc65495 h1:6IyqGr3fnd0tM3YxipK27TUskaOVUjU2nG45yzwcQKY=
 github.com/davecgh/go-spew v0.0.0-20171005155431-ecdeabc65495/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
