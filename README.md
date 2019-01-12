@@ -56,7 +56,7 @@
 Install SDK library
 
 ```
-$ go get -u github.coma/appleboy/go-kkbox
+$ go get -u github.com/appleboy/go-kkbox
 ```
 
 Inital the KKBox client:
