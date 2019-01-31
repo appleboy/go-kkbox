@@ -28,16 +28,10 @@ errcheck:
 	errcheck $(PACKAGES)
 
 lint:
-	@hash golint > /dev/null 2>&1; if [ $$? -ne 0 ]; then \
-		go get -u golang.org/x/lint/golint; \
+	@hash revive > /dev/null 2>&1; if [ $$? -ne 0 ]; then \
+		$(GO) get -u github.com/mgechev/revive; \
 	fi
-	for PKG in $(PACKAGES); do golint -set_exit_status $$PKG || exit 1; done;
-
-unconvert:
-	@hash unconvert > /dev/null 2>&1; if [ $$? -ne 0 ]; then \
-		go get -u github.com/mdempsky/unconvert; \
-	fi
-	for PKG in $(PACKAGES); do unconvert -v $$PKG || exit 1; done;
+	revive -config .revive.toml ./... || exit 1
 
 embedmd:
 	@hash embedmd > /dev/null 2>&1; if [ $$? -ne 0 ]; then \
