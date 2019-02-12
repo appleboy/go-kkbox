@@ -9,10 +9,6 @@ platform:
 clone:
   disable: true
 
-workspace:
-  base: /go/src
-  path: github.com/appleboy/go-kkbox
-
 steps:
 - name: git
   pull: default
@@ -24,13 +20,13 @@ steps:
 - name: test
   pull: always
   image: golang:1.11
+  environment:
+    GO111MODULE: on
   commands:
   - make vet
   - make lint
   - make embedmd
   - make test
-  environment:
-    GO111MODULE: on
 
 - name: codecov
   pull: default
