@@ -22,12 +22,6 @@ fmt-check:
 vet:
 	$(GO) vet $(PACKAGES)
 
-errcheck:
-	@hash errcheck > /dev/null 2>&1; if [ $$? -ne 0 ]; then \
-		$(GO) get -u github.com/kisielk/errcheck; \
-	fi
-	errcheck $(PACKAGES)
-
 lint:
 	@hash revive > /dev/null 2>&1; if [ $$? -ne 0 ]; then \
 		$(GO) get -u github.com/mgechev/revive; \
@@ -41,7 +35,7 @@ embedmd:
 	embedmd -d *.md
 
 test: fmt-check
-	for PKG in $(PACKAGES); do $(GO) test -v -cover -coverprofile $$GOPATH/src/$$PKG/coverage.txt $$PKG || exit 1; done;
+	@$(GO) test -v -cover -coverprofile coverage.txt $(PACKAGES) && echo "\n==>\033[32m Ok\033[m\n" || exit 1
 
 clean:
 	$(GO) clean -x -i ./...
